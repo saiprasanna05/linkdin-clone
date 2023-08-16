@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lnk.css">
+    <script src="lnk.js"></script>
+    <style>*{
+        margin: 0;
+        padding: 0;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        box-sizing: border-box;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #5f5f5f;
+    }
+    body{
+        background-color: #f0f2f5;
+        color: #5f5f5f;
+    }
+    
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 6%;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        
+    }
+    
+    .logo img{
+        width: 30px;
+        margin-right: 15px;
+        display: block;
+    }
+    
+    .nav-center ul li{
+        display:inline-block;
+        list-style: none;
+    }
+    
+    .nav-center ul li a{
+        display: flex;
+        align-items: center;
+        margin: 5px 8px;
+        font-size: 14px;
+        padding-right: 5px;
+        position: relative;
+        
+    }
+    
+    .nav-center ul li a img{
+        width: 30px;
+    }
+    
+    .nav-center ul li a::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        background: rgb(0, 86, 216);
+        position: absolute;
+        bottom: -3px;
+        transition: width 0.3s;
+        box-shadow: 0 2px 10px rgb(0, 86, 216,0.5);
+    }
+    .nav-center ul li a:hover::after,.nav-center ul li a.active::after{
+        width: 100%;
+    }
+    
+    .nav-right img{
+        width: 40px;
+        border-radius: 50%;
+        position: relative;
+        display: block;
+        cursor: pointer;
+    }
+    
+    .online{
+        position: relative;
+    }
+    
+    .online::after{
+        content: '';
+        position:absolute;
+        width: 7px;
+        height: 7px;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: green;
+    }
+    
+    .search{
+        background: #f0f2f5;
+        width: 250px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding: 0px 15px;
+    }
+    
+    .nav-left{
+        display: flex;
+        align-items: center;
+    }
+    
+    .search img{
+        width: 14px;
+    }
+    
+    .nav-left input{
+        width: 100%;
+        background: transparent;
+        padding: 8px;
+        outline: none;
+        border: none;
+        
+    }
+    
+    .search:hover{
+        border: 2px solid rgb(0, 86, 216,0.5);
+        
+    }
+    
+    /* nav */
+    
+    .main-content{
+        padding: 20px 10%;
+        display: flex;
+        flex-wrap: wrap;
+        
+        justify-content: space-between;
+    }
+    
+    .left{
+        flex-basis: 25%;
+        align-self:flex-start;
+        position: sticky;
+        top: 73px;
+        
+        
+    }
+    
+    .sideprofile{
+        background: #fff;
+        border-radius: 20px 20px 0px 0px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    
+    }
+    
+    
+    
+    .profileinfo{
+        padding: 4px 25px;
+        
+        
+    }
+    .profileinfo img{
+        width: 80px;
+        border-radius: 50%;
+        background: #fff;
+        padding: 4px;
+        margin-top: -45px;
+    
+    }
+    
+    .profileinfo h1{
+        font-size: 20px;
+        font-weight: 600;
+        color: #222;
+    }
+    .profileinfo h3{
+        font-size: 16px;
+        font-weight: 400;
+        color: #777;
+    }
+    
+    .profileinfo ul{
+        list-style: none;
+        margin: 20px 0;
+    }
+    
+    .profileinfo ul li{
+        font-size: 13px;
+        margin: 5px 0;
+        width: 100%;
+    }
+    .profileinfo ul li span{
+        float: right;
+        color: #045be6;
+        
+    }
+    
+    .links{
+        display: flex;
+        align-items: center;
+       background: #fff;
+       border-top: 2px solid #ccc;
+       border-radius: 0px 0px 20px 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+       
+    }
+    
+    .links a{
+        flex-basis: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 0;
+        font-size: 13px;
+        border-left: 1px  solid #ccc;
+    
+    }
+    
+    .links a:first-child{
+        border-left: 0;
+    }
+    
+    .links a img{
+        width: 20px;
+        margin-right: 10px;
+    }
+    .links a:first-child:hover{
+        color: #045be6
+    
+    }
+    .links a:nth-child(2):hover{
+        color: #045be6
+    }
+    
+    .activity{
+        background: #fff;
+        padding: 5px 25px;
+        margin: 12px 0;
+        border-radius: 20px ;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        
+    
+    }
+    .activity h3{
+        font-size: 14px;
+        color: #777;
+        font-weight: 500;
+        margin: 20px 0 10px;
+    }
+    
+    .activity a{
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500px;
+        color: #888;
+        margin: 10px 0;
+    }
+    
+    .activity a img{
+        width: 20px;
+        margin-right: 10px;
+    }
+    
+    .border{
+        height: 2px ;
+        background: #ccc;
+    }
+    
+    .more{
+        border-top: 1PX solid #CCC;
+        text-align: center;
+        margin-top: 20PX;
+        margin-left: -25PX;
+        margin-right: -25PX;
+    }
+    
+    .more a{
+        color: #045be6;
+        display:inline-block;
+        margin: 10px 0;
+    }
+    
+    .activity a:hover{
+        color: #045be6;
+    }
+    
+    .more a:hover{
+        font-weight: bold;
+    
+    }
+    
+    /* rightsidebar */
+    
+    
+    .right{
+        flex-basis: 25%;
+        align-self:flex-start;
+        position: sticky;
+        top: 73px;
+        
+    }
+    
+    .news{
+        background: #fff;
+        padding: 10px 25px;
+        border-radius: 20px ;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .icon{
+        width: 15px;
+        float: right;
+        margin-top: 15px;
+        
+    }
+    
+    .news h3{
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        padding: 10px 0 30px;
+    }
+    
+    .news a{
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 10px;
+        margin-bottom: -5px;
+        color: #333;
+    
+    }
+    
+    .news span{
+        font-size: 12px;
+    }
+    
+    .news:last-child{
+        padding-bottom: 5px;
+    }
+    
+    .news .read{
+        color: #045be6;
+        font-weight: 600;
+        margin: 20px 0 10px;
+    }
+    
+    .right-ad{
+        background: #fff;
+        padding: 15px 25px;
+        text-align: center;
+        margin: 12px 0;
+        font-size: 12px;
+        border-radius: 20px ;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .right-ad img{
+        width: 60px;
+        border-radius: 50%;
+        margin: 4px;
+    }
+    
+    .right-ad small{
+        float: right;
+        font-weight: 500;
+    
+    }
+    
+    .right-ad p{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    
+    .right-ad b{
+        font-weight: 500;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .learn{
+        display: inline-block;
+        border: 2px solid #045be6;
+        color: #045be6;
+        border-radius: 30px ;
+        padding: 5px 15px;
+        font-weight: 500;
+        margin: 20px 0 10px;
+    }
+    
+    .useful-links{
+        padding: 15px 25px;
+        text-align: center;
+    }
+    
+    .useful-links a{
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 20px;
+        font-weight: 400;
+        position: relative;
+    }
+    
+    .copyrights{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        font-size: 12px;
+        font-weight: 500;
+        
+    
+    }
+    
+    .copyrights img{
+        width: 30px;
+        margin-right: 5px;
+    }
+    
+    .useful-links a::after{
+        content: '';
+        width: 0;
+        height: 1px;
+        background: rgb(0, 86, 216);
+        position: absolute;
+        bottom: -4px;
+        left: 0px;
+        transition: width 0.3s;
+        box-shadow: 0 2px 10px rgb(0, 86, 216,0.5);
+    }
+    .useful-links a:hover::after{
+        width: 100%;
+    }
+    
+    /* main= */
+    
+    .main{
+        
+        flex-basis: 47%;
+        
+         
+    }
+    
+    .post{
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+    
+    
+    .post-here{
+        padding: 20px 25px 10px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .post-here img{
+        width: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    
+    
+    
+    .post-here textarea{
+        width: 100%;
+        border: 0;
+        outline: 0;
+        resize: none;
+        background: transparent;
+        margin-top: 8px;
+        height: 30px;
+        z-index: 1;
+    }
+    
+    .post-here textarea::placeholder{
+        font-weight: 500;
+    }
+    
+    .postlinks{
+        display: flex;
+        align-items: flex-start;
+        z-index: 2;
+    }
+    
+    .postlinks li{
+        list-style: none;
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        flex-basis: 25%;
+        height: 40px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .postlinks li img{
+        width: 15px;
+        margin-right: 5px;
+    }
+    
+    .postlinks li:last-child{
+        border-top: 0;
+        border-right: 0;
+        background: #045be6;
+        color: #fff;
+        border-radius: 0px 0px 20px 0px;
+        
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    
+    }
+    
+    .postlinks li:hover{
+        color: #045be6;
+    }
+    
+    .postlinks li:last-child:hover{
+        color: #fff;
+        font-weight: 600;
+    }
+    
+    .short{
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .short hr{
+        flex: 1;
+        border: 0;
+        height: 1px;
+        background: #ccc;
+    
+    }
+    
+    .short p{
+        font-size: 13px;
+        margin-left: 5px;
+    }
+    
+    .short span{
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .short span img{
+        width: 12px;
+        margin-left: 3px;
+    }
+    .short span:hover{
+       color: #045be6;
+    }
+    
+    .dailypost{
+        background: #fff;
+        padding: 20px 25px 5px;
+        margin: 5px 0 15px;
+        
+    }
+    
+    .mypost{
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        
+    }
+    .mypost img{
+        width: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+    
+    .mypost h1{
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .mypost small{
+        display: block;
+        margin-bottom: -2px;
+    }
+    
+    .dailypost p{
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .likesandshares{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 6px;
+        cursor: pointer;
+    }
+    
+    .likesandshares div{
+        display: flex;
+        align-items:center ;
+    }
+    
+    .likesandshares img{
+        width: 15px;
+        margin-right: -5px;
+    }
+    
+    .likesandshares .liked{
+        margin-left: 10px;
+    }
+    
+    .post-activity{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+    
+    .post-activity div{
+        display: flex;
+        align-items: center;
+    }
+    
+    .post-activity .user-icon{
+        width: 22px;
+        border-radius: 50%;
+    }
+    
+    .post-activity .down-icon{
+        width: 12px;
+        margin-left: 5px;
+    }
+    
+    .activity-links img{
+        width: 17px;
+        margin-right: 8px;
+    }
+    
+    .comment:hover{
+        color: #045be6;
+    
+    }
+    
+    .dailypost{
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+    
+    /* profilrwarp----------- */
+    
+    .profilr-warp{
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        width: 320px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        
+    }
+    
+    .profilr-warp.open-menu{
+        max-height: 400px;
+    }
+    
+    .userprofile{
+        background: #222;
+        color: #fff;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 20px;
+    }
+    
+    .userinfo{
+        display:flex;
+        align-items: center;
+    }
+    
+    .userinfo img{
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .userinfo h3{
+        font-weight: 500;
+        margin-bottom: -7px;
+    }
+    
+    .userinfo a{
+        color: #c9dbf8;
+        font-size: 13px;
+    }
+    
+    .userprofile hr{
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: #ccc;
+        margin: 15px 0 20px;
+    
+    }
+    .feedback{
+        display: flex;
+        align-items: center;
+        color: #fff;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+    
+    
+    
+    .feedback p{
+        width: 100%;
+    }
+    
+    .feedback:hover{
+        color: #c9dbf8;
+    }
+    
+    .feedback img{
+        width: 35px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .online-present{
+        position: relative;
+    }
+    .online-present::after{
+        content: '';
+        position:absolute;
+        width: 7px;
+        height: 7px;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: green;
+        margin-right: 20px;
+        margin-bottom: 5px;
+    }
+    
+    /* ----------------profile--------------- */
+    
+    .profile5{
+        flex-basis: 73%;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        
+    }
+    
+    .profile-side6{
+        flex-basis: 25%;
+        align-self: flex-start;
+        position: sticky;
+        top: 73px;
+    }
+    .profile-pic{
+        width: 150px;
+        border-radius: 50%;
+        margin-top: -75px;
+        padding: 5px ;
+        background: #fff;
+    
+    
+    }
+    
+    .iner-container{
+        padding: 0 4% 10px;
+    }
+    
+    .iner-container h1{
+        font-size: 28px;
+        font-weight: 600;
+        color: #222;
+    }
+    
+    .iner-container b{
+        font-weight: 500;
+    }
+    
+    .iner-container p{
+        margin-top: 5px;
+    }
+    
+    .iner-container p a{
+        color: #045be6;
+    
+    }
+    
+    .mutual{
+        display:flex ;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    .mutual img{
+        width: 30px;
+        border-radius: 50%;
+    
+        margin-right: 5px;
+    }
+    
+    .profile-btn{
+        margin: 20px 0;
+    }
+    .profile-btn .prime:hover{
+        scale: 1.05;
+    }
+    .profile-btn a{
+        display: inline-flex;
+        align-items: center;
+        background: #e4e6eb;
+        padding: 6px 15px;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    .profile-btn img{
+        width: 18px;
+        margin-right: 5px;
+        
+    }
+    
+    .profile-btn .prime{
+        background: #045be6;
+        color: #fff;
+        
+    }
+    
+    .discription{
+        background: #fff;
+        padding: 20px 4% 30px;
+        margin: 12px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+    
+    .discription h2{
+        color: #333;
+        margin: 10PX 0 20PX;
+        font-weight: 600;
+    
+    }
+    .seemore{
+        display: block;
+        text-align: right;
+        font-size: 15px;
+    }
+    .seemore:hover{
+        color: #045be6;
+    }
+    
+    .dis-row{
+        display: flex;
+        align-items: flex-start;
+        margin: 20px 0;
+    }
+    .dis-row img{
+        width: 50px;
+        margin-right: 25px;
+        margin-top: 5px;
+    }
+    .dis-row div{
+        width: 100%;
+    }
+    .dis-row h3{
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+    }
+    .dis-row b{
+        display: block;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    .dis-row p{
+        margin-top: 15px;
+    }
+    .dis-row hr{
+        border: 0;
+        border-bottom: 1px solid #999;
+        margin-top: 10px;
+    }
+    .skill-btn{
+        display: inline-block;
+        margin: 10px 5px;
+        padding: 6px 18px;
+        border: 1px solid #777;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .lan-btn{
+        display: inline-block;
+        margin: 10px 5px;
+        padding: 6px 18px;
+        border: 1px solid #777;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .skill-btn:hover{
+        border: 1px solid #045be6;
+        color: #045be6;
+    }
+    
+    .profile-side6 .right-ad{
+        margin: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+    
+    
+    .side-people{
+        background: #Fff;
+        padding: 15px 25px;
+        margin: 12px 0;
+        font-size: 12px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+    }
+    .side-people h3{
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px 0 20px;
+    }
+    
+    .people-row{
+        display: flex;
+        align-items: flex-start;
+        margin: 6px 0;
+    }
+    .people-row img{
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 8px;
+        margin-top: 5px;
+    }
+    .people-row h2{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .people-row a{
+        display: inline-block;
+        margin: 10px 0;
+        padding: 5px 25px;
+        border: 1px solid #5f5f5f;
+        border-radius: 30px;
+        font-weight: 500;
+    }
+    
+    .cover-pics{
+        
+        border-radius:  20px 20px 0px 0px;
+    }
+    #showmorelink{
+        display: none;
+    }
+    
+    @media only screen and (max-width:600px){
+        .search{
+            background: transparent;
+            width: auto;
+            padding: 0%;
+        }
+        .search input{
+            width: 0;
+            padding: 0;
+        }
+        .nav-center ul li a span {
+            display: none;
+        }
+        .nav-center ul li a{
+            padding-right: 0%;
+            margin: 5px;
+        }
+        .online img{
+            width: 30px;
+        }
+        .main-content{
+            padding: 15px 3%;
+        }
+        .left , .right{
+            flex-basis: 100%;
+            position: relative;
+            top: unset;
+        }
+        .main{
+            flex-basis: 100%;
+            
+        }
+        .likesandshares div{
+            margin: 2px 0;
+        }
+        .post-activity span{
+            display: none;
+        }
+        .post-activity img{
+            margin-right: 0;
+        }
+        .profile5 , .profile-side6{
+            flex-basis: 100%;
+        }
+        .profile-pic{
+            width: 100px;
+            margin-top: -50px;
+        }
+        .discription p{
+            font-size: 14px;
+        }
+        .profile-footer{
+            padding: 0 1% 30px;
+        }
+        .useful-links{
+            text-align: left;
+            padding: 0;
+        }
+        .copyrights{
+            justify-content: flex-start;
+            padding: 0 4%;
+        }
+        #showmorelink{
+            display: block;
+            width: fit-content;
+            margin: 10px auto;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #showmorelink:hover{
+            color: #045be6;
+        }
+        .activity{
+            display: none;
+            transition: height 0.5s;
+        }
+    
+        .activity.open-activity{
+            display: block;
+            height: auto;
+        }
+    
+    
+    }</style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="lnk.html" class="logo">
+                <img src="images/logo.png" >
+                
+            </a>
+
+            <div class="search">
+                <img src="images/search.png" >
+                <input type="text" placeholder="search" >
+            </div>
+        </div>
+        <div class="nav-center">
+            <ul>
+                <li><a href="#" class="active"><img src="images/home.png" ><span>Home</span></a></li>
+                <li><a href="#"><img src="images/jobs.png" ><span>Jobs</span></a></li>
+                <li><a href="#"><img src="images/network.png" ><span>Network</span></a></li>
+                <li><a href="#"><img src="images/message.png" ><span>Message</span></a></li>
+                <li><a href="#"><img src="images/notification.png" ><span>Notification</span></a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="online">
+                <img src="images/user-1.png" class="navpro" onclick="togglemenu()">
+            </div>
+        </div>
+
+        <div class="profilr-warp" id="profilemenu">
+            <div class="userprofile">
+                <div class="userinfo">
+                    <div class="online-present">
+                        <img src="images/user-1.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Sai prasanna</h3>
+                        <a href="profile.html">see your profile</a>
+                    </div>
+                </div>
+                <hr>
+                <a href="#" class="feedback">
+                    <img src="images/feedback.png" alt="">
+                    <p>Give your feedback</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="feedback">
+                    <img src="images/setting.png" alt="">
+                    <p>Settings & privacy</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="feedback">
+                    <img src="images/help.png" alt="">
+                    <p>Help & support</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="feedback">
+                    <img src="images/display.png" alt="">
+                    <p>Display & Accessibility</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="feedback">
+                    <img src="images/logout.png" alt="">
+                    <p>Log out</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- -----------navend----------- -->
+
+    <div class="main-content">
+        <div class="left">
+            <div class="sideprofile">
+                <img src="images/cover-pic.png" width="100%" class="cover-pics">
+                <div class="profileinfo">
+                    <img src="images/user-1.png" >
+                    <h1>Sai prasanna</h1>
+                    <h3>ux/ui designer</h3>
+                    <ul>
+                        <li>profile view <span>42</span></li>
+                        <li>post views<span>400</span></li>
+                        <li> connections <span>500+</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="#">
+                    <img src="images/items.png" alt="">
+                    My items
+                </a>
+                <a href="#">
+                    <img src="images/premium.png" alt="">
+                    Try premium
+                </a>
+            </div>
+
+            <div class="activity" id="downbar-activity">
+                <h3>RECENT</h3>
+                <a href="#"><img src="images/recent.png" alt="">web development</a>
+                <a href="#"><img src="images/recent.png" alt="">web design</a>
+                <a href="#"><img src="images/recent.png" alt="">networking</a>
+                <a href="#"><img src="images/recent.png" alt="">wordpress</a>
+                <a href="#"><img src="images/recent.png" alt="">userexperince</a>
+
+                <div class="border"></div>
+
+                <h3>GROUPS</h3>
+                <a href="#"><img src="images/group.png" alt="">web development</a>
+                <a href="#"><img src="images/group.png" alt="">web design</a>
+                <a href="#"><img src="images/group.png" alt="">networking</a>
+                <a href="#"><img src="images/group.png" alt="">wordpress</a>
+                <a href="#"><img src="images/group.png" alt="">userexperince</a>
+
+                <div class="border"></div>
+                <h3>HASHTAG</h3>
+                <a href="#"><img src="images/hashtag.png" alt="">web development</a>
+                <a href="#"><img src="images/hashtag.png" alt="">web design</a>
+                <a href="#"><img src="images/hashtag.png" alt="">networking</a>
+                <a href="#"><img src="images/hashtag.png" alt="">wordpress</a>
+                <a href="#"><img src="images/hashtag.png" alt="">userexperince</a>
+                
+                <div class="more">
+                    <a href="#">DISCOVER MORE</a>
+                </div>
+            </div>
+            <p id="showmorelink" onclick="toggleActivity()">Show more <b>+</b></p>
+        </div>
+        <div class="main">
+            <div class="post">
+                <div class="post-here">
+                    <img src="images/user-1.png" alt="">
+                    <textarea placeholder="post somthing here" rows="10"></textarea>
+                </div>
+
+                <div class="postlinks">
+                    <li><img src="images/photo.png" alt="">Photos</li>
+                    <li><img src="images/video.png" alt="">Video</li>
+                    <li><img src="images/event.png" alt="">Events</li>
+                    <li>Post</li>
+                </div>
+            </div>
+
+            <div class="short">
+                <hr>
+                <p>Short by: <span>top <img src="images/down-arrow.png" alt=""></span></p>
+                
+            </div>
+
+            <div class="dailypost">
+                <div class="mypost">
+                    <img src="images/user-3.png" alt="">
+                    <div>
+                        <h1>Benjamine v</h1>
+                        <small>web developer at h&m</small>
+                        <small>12hr.ago</small>
+                    </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste incidunt animi quisquam minima? Cupiditate repudiandae cum id sit, consequuntur ipsam facilis eligendi minus! Doloremque nesciunt, ad dolorum odit harum ducimus.</p>
+                <img src="images/post-image-1.png" width="100%">
+
+                <div class="likesandshares">
+                    <div>
+                        <img src="images/thumbsup.png" alt="">
+                        <img src="images/love.png" alt="">
+                        <img src="images/clap.png" alt="">
+                        <span class="liked">Abinov mithra and 57 others</span>
+                    </div>
+
+                    <div>
+                        <span class="comment">22comments &middot; 40 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-activity">
+                    <div>
+                        <img src="images/user-1.png" class="user-icon">
+                        <img src="images/down-arrow.png" class="down-icon">
+                    </div>
+
+                    <div class="activity-links">
+                        <img src="images/like.png" alt="">
+                        <span>like</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/comment.png" alt="">
+                        <span>comment</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/share.png" alt="">
+                        <span>share</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/send.png" alt="">
+                        <span>send</span>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="dailypost">
+                <div class="mypost">
+                    <img src="images/user-4.png" alt="">
+                    <div>
+                        <h1>Benjamine v</h1>
+                        <small>web developer at h&m</small>
+                        <small>12hr.ago</small>
+                    </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste incidunt animi quisquam minima? Cupiditate repudiandae cum id sit, consequuntur ipsam facilis eligendi minus! Doloremque nesciunt, ad dolorum odit harum ducimus.</p>
+                <img src="images/post-image-2.png" width="100%">
+
+                <div class="likesandshares">
+                    <div>
+                        <img src="images/like.png" alt="">
+                        <img src="images/love.png" alt="">
+                        <img src="images/clap.png" alt="">
+                        <span class="liked">Abinov mithra and 57 others</span>
+                    </div>
+
+                    <div>
+                        <span class="comment">22comments &middot; 40 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-activity">
+                    <div>
+                        <img src="images/user-1.png" class="user-icon">
+                        <img src="images/down-arrow.png" class="down-icon">
+                    </div>
+
+                    <div class="activity-links">
+                        <img src="images/like.png" alt="">
+                        <span>like</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/comment.png" alt="">
+                        <span>comment</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/share.png" alt="">
+                        <span>share</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/send.png" alt="">
+                        <span>send</span>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="dailypost">
+                <div class="mypost">
+                    <img src="images/user-5.png" alt="">
+                    <div>
+                        <h1>Benjamine v</h1>
+                        <small>web developer at h&m</small>
+                        <small>12hr.ago</small>
+                    </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste incidunt animi quisquam minima? Cupiditate repudiandae cum id sit, consequuntur ipsam facilis eligendi minus! Doloremque nesciunt, ad dolorum odit harum ducimus.</p>
+                <img src="images/post-image-3.png" width="100%">
+
+                <div class="likesandshares">
+                    <div>
+                        <img src="images/like.png" alt="">
+                        <img src="images/love.png" alt="">
+                        <img src="images/clap.png" alt="">
+                        <span class="liked">Abinov mithra and 57 others</span>
+                    </div>
+
+                    <div>
+                        <span class="comment">22comments &middot; 40 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-activity">
+                    <div>
+                        <img src="images/user-1.png" class="user-icon">
+                        <img src="images/down-arrow.png" class="down-icon">
+                    </div>
+
+                    <div class="activity-links">
+                        <img src="images/like.png" alt="">
+                        <span>like</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/comment.png" alt="">
+                        <span>comment</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/share.png" alt="">
+                        <span>share</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/send.png" alt="">
+                        <span>send</span>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="dailypost">
+                <div class="mypost">
+                    <img src="images/user-5.png" alt="">
+                    <div>
+                        <h1>Benjamine v</h1>
+                        <small>web developer at h&m</small>
+                        <small>12hr.ago</small>
+                        
+                    </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste incidunt animi quisquam minima? Cupiditate repudiandae cum id sit, consequuntur ipsam facilis eligendi minus! Doloremque nesciunt, ad dolorum odit harum ducimus.</p>
+                <img src="images/post-image-4.png" width="100%">
+
+                <div class="likesandshares">
+                    <div>
+                        <img src="images/like.png" alt="">
+                        <img src="images/love.png" alt="">
+                        <img src="images/clap.png" alt="">
+                        <span class="liked">Abinov mithra and 57 others</span>
+                    </div>
+
+                    <div>
+                        <span class="comment">22comments &middot; 40 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-activity">
+                    <div>
+                        <img src="images/user-1.png" class="user-icon">
+                        <img src="images/down-arrow.png" class="down-icon">
+                    </div>
+
+                    <div class="activity-links">
+                        <img src="images/like.png" alt="">
+                        <span>like</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/comment.png" alt="">
+                        <span>comment</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/share.png" alt="">
+                        <span>share</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/send.png" alt="">
+                        <span>send</span>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div class="dailypost">
+                <div class="mypost">
+                    <img src="images/user-3.png" alt="">
+                    <div>
+                        <h1>Benjamine v</h1>
+                        <small>web developer at h&m</small>
+                        <small>12hr.ago</small>
+                    </div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste incidunt animi quisquam minima? Cupiditate repudiandae cum id sit, consequuntur ipsam facilis eligendi minus! Doloremque nesciunt, ad dolorum odit harum ducimus.</p>
+                <img src="images/post-image-1.png" width="100%">
+
+                <div class="likesandshares">
+                    <div>
+                        <img src="images/like.png" alt="">
+                        <img src="images/love.png" alt="">
+                        <img src="images/clap.png" alt="">
+                        <span class="liked">Abinov mithra and 57 others</span>
+                    </div>
+
+                    <div>
+                        <span class="comment">22comments &middot; 40 shares</span>
+                    </div>
+                </div>
+
+                <div class="post-activity">
+                    <div>
+                        <img src="images/user-1.png" class="user-icon">
+                        <img src="images/down-arrow.png" class="down-icon">
+                    </div>
+
+                    <div class="activity-links">
+                        <img src="images/like.png" alt="">
+                        <span>like</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/comment.png" alt="">
+                        <span>comment</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/share.png" alt="">
+                        <span>share</span>
+                    </div>
+                    <div class="activity-links">
+                        <img src="images/send.png" alt="">
+                        <span>send</span>
+                    </div>
+                
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="right">
+            <div class="news">
+                <img src="images/more.png" class="icon">
+                <h3>TRENDING NEWS</h3>
+                <a href="#">high demand skills in 2023</a>
+                <span>1d ago &middot; 1000 readers</span>
+
+                <a href="#">high demand incomes in 2023</a>
+                <span>2d ago &middot; 10800 readers</span>
+
+                <a href="#">AI based skills in 2023</a>
+                <span>19h ago &middot; 1000 readers</span>
+
+                <a href="#">high demand skills in 2023</a>
+                <span>1d ago &middot; 1000 readers</span>
+
+                <a href="#">high demand skills in 2023</a>
+                <span>1d ago &middot; 1000 readers</span>
+
+                <a href="#">high demand skills in 2023</a>
+                <span>1d ago &middot; 1000 readers</span>
+
+               <a href="#" class="read">READ MORE</a>
+            </div>
+
+            <div class="right-ad">
+                <small>ad &middot; &middot; &middot; </small>
+                <p>learn top tech skills</p>
+                <div>
+                    <img src="images/user-1.png" alt="">
+                    <img src="images/mi-logo.png" alt="">
+                    
+                </div>
+                
+                <b>learn in demand in design</b>
+                <a href="#" class="learn">LEARN MORE</a>
+               
+            </div>
+
+            <div class="useful-links">
+                <a href="#">About</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Help center</a>
+                <a href="#">Privacy policy</a>
+                <a href="#">Get the app</a>
+                <a href="#">More</a>
+
+                <div class="copyrights">
+                    <img src="images/logo.png" alt="">
+                    <p>Linkedup &#169; 2022. All rights are reserved</p>
+                </div>
+            </div>
+
+           
+
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+        let profilemenu = document.getElementById("profilemenu");
+        function togglemenu(){
+            profilemenu.classList.toggle("open-menu");
+        }
+    </script>
+
+    <script>
+        let downbar = document.getElementById("downbar-activity");
+        let showmore = document.getElementById("showmorelink");
+
+        function toggleActivity(){
+            downbar.classList.toggle("open-activity")
+            if (downbar.classList.contains("open-activity")){
+                showmore.innerHTML = "Show less <b>-</b>";
+            
+            }
+            else{
+                showmore.innerHTML = "Show more <b>+</b>";
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
